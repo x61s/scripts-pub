@@ -62,7 +62,6 @@ for page in pages:
 print(apartments)
 
 import json
-import time
 
 dt = time.strftime("%Y%m%d-%H%M%S")
 filename = 'sahibinden-for-sale-' + dt + '.json'
@@ -70,4 +69,4 @@ filename = 'sahibinden-for-sale-' + dt + '.json'
 print('Saving apartments dictionary to', filename)
 
 with open(filename, 'w') as f:
-    json.dump(apartments, f, indent=4, sort_keys=True)
+    json.dump(apartments, f, indent=4, sort_keys=True, ensure_ascii=False)
