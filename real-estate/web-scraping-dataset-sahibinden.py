@@ -31,9 +31,7 @@ for offset in range(0, 500, 50):
     url += '&sorting=date_desc'
     print('Processing URL', url)
     driver.get(url)
-    #print(driver.page_source)
     pages.append(driver.page_source)
-    #driver.save_screenshot('sahibinden-{0}.png'.format(offset))
     time.sleep(10)
 
 driver.close()
@@ -57,7 +55,6 @@ for page in pages:
             text = cell.text.replace('\n', '').strip()
             if len(text):
                 cell_data.append(text)
-        #print(cell_data)
         if len(cell_data):
             apartments[counter] = cell_data
             counter += 1
