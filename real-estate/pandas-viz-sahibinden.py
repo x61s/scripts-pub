@@ -9,6 +9,7 @@ axWeb = dfWeb.plot(kind='scatter', x='Property Size', y='Price', color='red', la
 
 dfSahibinden = pd.read_json('sahibinden-converted-output.json', orient='index')
 axSahibinden = dfSahibinden.plot(ax=axWeb, kind='scatter', x='Property Size', y='Price', color='purple', label='Sahibinden Web scraping')
+print(dfSahibinden)
 
 dfTelegram = pd.read_json('tg-output.json', orient='index')
 dfTelegram.replace('', np.NaN, inplace=True)
