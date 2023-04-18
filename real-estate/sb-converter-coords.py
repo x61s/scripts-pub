@@ -2,8 +2,8 @@
 
 import json, re
 
-inputFile = open('sahibinden-for-sale-20230419-010836.json', 'r')
-exportFile = open('sahibinden-converter-coords-output.json', 'w')
+inputFile = open('sb-for-sale-20230419-010836.json', 'r')
+exportFile = open('sb-converter-coords-output.json', 'w')
 
 data = json.load(inputFile)
 

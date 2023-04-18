@@ -12,7 +12,7 @@ options.add_argument('--force-dark-mode')
 driver = uc.Chrome(use_subprocess=True, options=options) 
 
 driver.maximize_window() 
-driver.get('https://www.sahibinden.com')
+driver.get('https://www.example.com')
 time.sleep(20)
 
 driver.find_element('xpath', '//*[@id="btn-continue"]').click()
@@ -25,7 +25,7 @@ pages = []
 
 for offset in range(0, 500, 50):
     print('Current offset', offset)
-    url = 'https://www.sahibinden.com/en/for-sale-flat/antalya-alanya-alanya-avsallar?'
+    url = 'https://www.example.com/en/for-sale-flat/antalya-alanya-alanya-avsallar?'
     url += 'pagingOffset=' + str(offset)
     url += '&pagingSize=50'
     url += '&sorting=date_desc'
@@ -50,7 +50,7 @@ for page in pages:
         for link in item.findAll(class_=['classifiedTitle'], href=True):
             cell_data.append(link['href'])
 
-            url = 'https://www.sahibinden.com'
+            url = 'https://www.example.com'
             url += link['href']
             driver.get(url)
             lat = ''
@@ -84,7 +84,7 @@ driver.close()
 import json
 
 dt = time.strftime("%Y%m%d-%H%M%S")
-filename = 'sahibinden-for-sale-' + dt + '.json'
+filename = 'example-for-sale-' + dt + '.json'
 
 print('Saving apartments dictionary to', filename)
 

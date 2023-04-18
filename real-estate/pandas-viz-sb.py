@@ -7,7 +7,7 @@ import numpy as np
 dfWeb = pd.read_json('for-sale-2023-04-09.json', orient='index')
 axWeb = dfWeb.plot(kind='scatter', x='Property Size', y='Price', color='red', label='RH Web scraping')
 
-dfSahibinden = pd.read_json('sahibinden-converted-output.json', orient='index')
+dfSahibinden = pd.read_json('example-converted-output.json', orient='index')
 axSahibinden = dfSahibinden.plot(ax=axWeb, kind='scatter', x='Property Size', y='Price', color='purple', label='Sahibinden Web scraping')
 print(dfSahibinden)
 

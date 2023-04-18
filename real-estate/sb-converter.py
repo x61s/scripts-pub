@@ -2,8 +2,8 @@
 
 import json, re
 
-inputFile = open('sahibinden-for-sale-20230416-235024.json', 'r')
-exportFile = open('sahibinden-converted-output.json', 'w')
+inputFile = open('example-for-sale-20230416-235024.json', 'r')
+exportFile = open('example-converted-output.json', 'w')
 
 data = json.load(inputFile)
 
