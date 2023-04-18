@@ -32,7 +32,7 @@ for offset in range(0, 500, 50):
     print('Processing URL', url)
     driver.get(url)
     pages.append(driver.page_source)
-    time.sleep(10)
+    time.sleep(5)
 
 print('All pages loaded.')
 
@@ -53,22 +53,26 @@ for page in pages:
             url = 'https://www.sahibinden.com'
             url += link['href']
             driver.get(url)
-            driver.find_element('xpath', '//*[@id="map"]').click()
-            time.sleep(5)
-            details = BeautifulSoup(driver.page_source, 'html.parser')
-            gmap = details.find('div', {'id': 'gmap'})
-            lat = gmap['data-lat']
-            lon = gmap['data-lon']
+            lat = ''
+            lon = ''
+            try:
+                driver.find_element('xpath', '//*[@id="map"]').click()
+                time.sleep(5)
+                details = BeautifulSoup(driver.page_source, 'html.parser')
+                gmap = details.find('div', {'id': 'gmap'})
+                lat = gmap['data-lat']
+                lon = gmap['data-lon']
+            except:
+                pass
             print(lat, lon)
             cell_data.append(lat)
             cell_data.append(lon)
-            time.sleep(10)
+            time.sleep(5)
 
         for cell in item.findAll('td'):
             text = cell.text.replace('\n', '').strip()
             if len(text):
                 cell_data.append(text)
-
         if len(cell_data):
             apartments[counter] = cell_data
             counter += 1
