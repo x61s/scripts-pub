@@ -1,9 +1,26 @@
 #!/bin/python3
 
+
+import math
+
+TILE_SIZE = 256
+zoom = 16
+
+def point_to_pixels(lon, lat, zoom):
+    """convert gps coordinates to web mercator"""
+    r = math.pow(2, zoom) * TILE_SIZE
+    lat = math.radians(lat)
+
+    x = int((lon + 180.0) / 360.0 * r)
+    y = int((1.0 - math.log(math.tan(lat) + (1.0 / math.cos(lat))) / math.pi) / 2.0 * r)
+
+    return x, y
+
+
 import json, re
 
 inputFile = open('sb-for-sale-20230419-010836.json', 'r')
-exportFile = open('sb-converter-coords-mercator-output.json', 'w')
+exportFile = open('sb-converter-mercator-output.json', 'w')
 
 data = json.load(inputFile)
 
@@ -32,6 +49,12 @@ for key in data:
     internalDict['Price'] = int(price)
     internalDict['Date'] = data[key][7]
     internalDict['Location'] = data[key][8]
+    
+    # mercator coords
+    x, y = point_to_pixels(data[key][1], data[key][2], zoom)
+    x_tiles, y_tiles = int(x / TILE_SIZE), int(y / TILE_SIZE)
+    internalDict['X'] = x
+    internalDict['Y'] = y
 
     exportDict[key] = internalDict
 

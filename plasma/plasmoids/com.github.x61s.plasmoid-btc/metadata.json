@@ -1,0 +1,23 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "arinov.ilas@gmail.com",
+                "Name": "Ilyas B Arinov"
+            }
+        ],
+        "Category": "Utilities",
+        "Description": "BTC currency amount in USD.",
+        "Icon": "/usr/share/icons/breeze/preferences/32/financial-investments.svg",
+        "Id": "com.github.x61s.plasmoid-btc",
+        "Name": "BTC currency",
+        "ServiceTypes": [
+            "Plasma/Applet"
+        ],
+        "Version": "1",
+        "Website": "https://github.com/x61s/plasmoid-btc"
+    },
+    "X-Plasma-API": "declarativeappletscript",
+    "X-Plasma-MainScript": "ui/main.qml"
+}
+ 
