@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Service
+Icon=document-new
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+MimeType=inode/directory
+Actions=createDjangoProject
+Encoding=UTF-8
+
+[Desktop Action createDjangoProject]
+Icon=text-x-python
+Name=Create Django project
+Exec=konsole --hold --separate -p 'TerminalColumns=80' -p 'TerminalRows=10' -e create-django-project.sh %F

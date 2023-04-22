@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Service
+Icon=document-new
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+MimeType=inode/directory
+Actions=createAnsibleRole
+Encoding=UTF-8
+
+[Desktop Action createAnsibleRole]
+Icon=folder-text
+Name=Create Ansible role
+Name[ru]=Создать Ansible роль
+Exec=create-ansible-role.sh %F

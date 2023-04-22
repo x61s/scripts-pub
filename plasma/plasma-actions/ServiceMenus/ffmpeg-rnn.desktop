@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Service
+Icon=audio-input-microphone
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+MimeType=video/mp4
+Actions=ffmpegRnn
+Encoding=UTF-8
+
+[Desktop Action ffmpegRnn]
+Icon=audio-input-microphone
+Name=ffmpeg-rnn
+Exec=konsole --hold --separate -p 'TerminalColumns=80' -p 'TerminalRows=10' -e ffmpeg-rnn.sh %F
