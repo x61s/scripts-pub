@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ARI {{ environment.upper() }}</title>
+    <link href="static/default.css" rel="stylesheet">
+  </head>
+  <body>
+    <header></header>
+    <main>
+    <h1>K8S RELEASE INFORMATION</h1>
+    <small>environment: <b style="color:#ffffff">{{ environment }}</b></small>
+    {% if deployments != {} %}
+    <h2>DEPLOYMENTS</h2>
+    {% for item in deployments %}
+
+    {{ item[0] }}
+    {% if item[1] == "unknown" %}
+    <b><span class="blinking_text">{{ item[1] }}</span></b>
+    {% else %}
+    <b>{{ item[1] }}</b>
+    {% endif %}
+    {% if item[2] != "unknown" %}
+    <small><a target="_blank" href="{{ item[2] }}">link</a></small>
+    {% endif %}
+    <br>
+
+    {% endfor %}
+    {% endif %}
+    
+    {% if statefulsets != {} %}
+    <h2>STATEFULSETS</h2>
+    {% for item in statefulsets %}
+
+    {{ item[0] }}
+    {% if item[1] == "unknown" %}
+    <b><span class="blinking_text">{{ item[1] }}</span></b>
+    {% else %}
+    <b>{{ item[1] }}</b>
+    {% endif %}
+    {% if item[2] != "unknown" %}
+    <small><a target="_blank" href="{{ item[2] }}">link</a></small>
+    {% endif %}
+    <br>
+
+    {% endfor %}
+    {% endif %}
+    
+    {% if daemonsets != {} %}
+    <h2>DAEMONSETS</h2>
+    {% for item in daemonsets %}
+
+    {{ item[0] }}
+    {% if item[1] == "unknown" %}
+    <b><span class="blinking_text">{{ item[1] }}</span></b>
+    {% else %}
+    <b>{{ item[1] }}</b>
+    {% endif %}
+    {% if item[2] != "unknown" %}
+    <small><a target="_blank" href="{{ item[2] }}">link</a></small>
+    {% endif %}
+    <br>
+
+    {% endfor %}
+    {% endif %}
+    
+    </main>
+    <footer>
+    <small>
+    <a href="https://gitlab.example.com/project/k8s-ri">Bugs found? Feature request?</a>
+    </small>
+    </footer>
+  </body>
+</html>

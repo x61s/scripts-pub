@@ -187,7 +187,7 @@ def printHint():
         'ld - list all done tasks',
         'a - add new task',
         'e - edit task',
-        'c - cancel task',
+        'c - cancel/activate task',
         'd - mark task as done',
         'r - remove canceled task from database',
         'ra - remove all canceled tasks from database',
