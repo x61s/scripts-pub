@@ -4,6 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
+
 dfWeb = pd.read_json('for-sale-2023-04-09.json', orient='index')
 axWeb = dfWeb.plot(kind='scatter', x='Property Size', y='Price', color='red', label='RH Web scraping')
 

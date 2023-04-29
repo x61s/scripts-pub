@@ -10,6 +10,8 @@ import numpy as np
 from itertools import product
 import overpy
 from matplotlib.patches import ConnectionPatch # for distance lines
+import json
+from math import radians, cos, sin, asin, sqrt # for haversine forula
 
 TILE_SIZE = 256
 
@@ -79,9 +81,6 @@ def get_highway(bot, lef, top, rgt):
     return highway
 
 
-
-
-from math import radians, cos, sin, asin, sqrt
 
 def haversine(lon1, lat1, lon2, lat2):
     """
@@ -208,12 +207,9 @@ coastline = {}
 coastline = get_coastline(bot, lef, top, rgt)
 #print(coastline)
 
-import json
-
 clFile = open('coastline.json', "w")
 json.dump(coastline, clFile, indent=4, ensure_ascii=False)
 clFile.close()
-
 
 dfCoastline = pd.DataFrame.from_dict(coastline, orient = 'index')
 #print(dfCoastline)
@@ -245,12 +241,9 @@ highway = get_highway(bot, lef, top, rgt)
 dfHighway = pd.DataFrame.from_dict(highway, orient = 'index')
 #print(dfHighway)
 
-import json
-
 hwFile = open('highway.json', "w")
 json.dump(highway, hwFile, indent=4, ensure_ascii=False)
 hwFile.close()
-
 
 ax.scatter(dfHighway.Lon.astype(float), dfHighway.Lat.astype(float), alpha=0.5, c='black', s=5, label='Highway points')
 

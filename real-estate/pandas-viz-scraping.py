@@ -3,6 +3,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 df = pd.read_json('for-sale-2023-04-09.json', orient='index')
 print(df)
 

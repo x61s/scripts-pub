@@ -2,6 +2,7 @@
 
 import json, re
 
+
 inputFile = open('sb-for-sale-20230419-010836.json', 'r')
 exportFile = open('sb-converter-coords-mercator-output.json', 'w')
 

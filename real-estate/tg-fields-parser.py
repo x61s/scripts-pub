@@ -2,6 +2,7 @@
 
 import json, re
 
+
 inputFile = open('dedup-output.json', 'r')
 exportFile = open('output.json', 'w')
 
@@ -66,6 +67,7 @@ for key in data:
 
     #internalDict['Message'] = msg
     exportDict[key] = internalDict
+
 
 print(exportDict)
 json.dump(exportDict, exportFile, indent=4, sort_keys=True, ensure_ascii=False)

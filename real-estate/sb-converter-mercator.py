@@ -1,7 +1,8 @@
 #!/bin/python3
 
-
 import math
+import json, re
+
 
 TILE_SIZE = 256
 zoom = 16
@@ -16,8 +17,6 @@ def point_to_pixels(lon, lat, zoom):
 
     return x, y
 
-
-import json, re
 
 inputFile = open('sb-for-sale-20230419-010836.json', 'r')
 exportFile = open('sb-converter-mercator-output.json', 'w')
@@ -57,6 +56,7 @@ for key in data:
     internalDict['Y'] = y
 
     exportDict[key] = internalDict
+
 
 print(exportDict)
 json.dump(exportDict, exportFile, indent=4, sort_keys=False, ensure_ascii=False)

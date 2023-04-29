@@ -5,6 +5,9 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options 
 import time
 import undetected_chromedriver as uc
+import json
+from bs4 import BeautifulSoup
+
 
 options = uc.ChromeOptions() 
 options.headless = False
@@ -35,8 +38,6 @@ for offset in range(0, 500, 50):
     time.sleep(5)
 
 print('All pages loaded.')
-
-from bs4 import BeautifulSoup
 
 print('Extracting data...')
 
@@ -80,8 +81,6 @@ for page in pages:
 print(apartments)
 
 driver.close()
-
-import json
 
 dt = time.strftime("%Y%m%d-%H%M%S")
 filename = 'example-for-sale-' + dt + '.json'

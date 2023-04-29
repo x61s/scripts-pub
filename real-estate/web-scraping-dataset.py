@@ -1,6 +1,10 @@
 #!/bin/python3
 
 import requests
+from bs4 import BeautifulSoup
+import json
+from datetime import date
+
 
 pages = []
 page = 0
@@ -18,8 +22,6 @@ while True:
         page += 1
 
 print('All pages loaded.')
-
-from bs4 import BeautifulSoup
 
 print('Extracting data...')
 
@@ -57,9 +59,6 @@ for url in urls:
         name += 1
 
 print(apartments)
-
-import json
-from datetime import date
 
 dt = date.today().strftime("%Y-%m-%d")
 filename = 'for-sale-' + dt + '.json'

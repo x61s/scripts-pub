@@ -2,6 +2,7 @@
 
 import json
 
+
 inputFile = open('input.json', 'r')
 exportFile = open('dedup-output.json', 'w')
 

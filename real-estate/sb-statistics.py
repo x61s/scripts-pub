@@ -3,6 +3,7 @@
 import pandas as pd
 import numpy as np
 
+
 df = pd.read_json('sb-converter-coastline-output.json', orient='index')
 filter = df["Lat"] != ""
 df = df[filter]
@@ -29,8 +30,6 @@ df10 = df[filter]
 
 #filter = (df["Price"] < 100000) & (df["Property Size"] > 80)
 #df = df[filter]
-
-
 
 # no1 way to calculate m2 price
 #df['m2Price'] = np.where(df['Price'] is np.nan, np.nan, df['Price']/df['Property Size'])

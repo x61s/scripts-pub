@@ -2,10 +2,10 @@
 # https://docs.telethon.dev/en/stable/basic/quick-start.html
 
 import os
-
 from telethon import TelegramClient
 import time
 import json
+
 
 api_id = 00000000
 api_hash = '<TOKEN>'

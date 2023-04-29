@@ -2,6 +2,7 @@
 
 import json, re
 
+
 inputFile = open('example-for-sale-20230416-235024.json', 'r')
 exportFile = open('example-converted-output.json', 'w')
 

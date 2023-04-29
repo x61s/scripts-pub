@@ -1,6 +1,9 @@
 #!/bin/python3
 
 import json, re
+from math import radians
+from sklearn.neighbors import BallTree
+import numpy as np
 
 inputFile = open('sb-converter-mercator-output.json', 'r')
 exportFile = open('sb-converter-coastline-output.json', 'w')
@@ -8,11 +11,6 @@ exportFile = open('sb-converter-coastline-output.json', 'w')
 data = json.load(inputFile)
 
 exportDict = {}
-
-
-from math import radians
-from sklearn.neighbors import BallTree
-import numpy as np
 
 def nearest(p, targets):
     p_rad = [(radians(p[0][0]), radians(p[0][1]))]
@@ -28,8 +26,6 @@ def nearest(p, targets):
 
     return target_point, round(distance[0])
 
-
-import json, re
 
 # nearest cloastline points for each df property object
 print('Nearest coastline and highway points for each property object:')
