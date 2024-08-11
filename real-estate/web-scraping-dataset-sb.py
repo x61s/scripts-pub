@@ -15,14 +15,14 @@ options.add_argument('--force-dark-mode')
 driver = uc.Chrome(use_subprocess=True, options=options) 
 
 driver.maximize_window() 
-driver.get('https://www.sahibinden.com')
-time.sleep(20)
+driver.get('https://sahibinden.com')
+time.sleep(30)
 
-driver.find_element('xpath', '//*[@id="btn-continue"]').click()
-time.sleep(10)
+#driver.find_element('xpath', '//*[@id="btn-continue"]').click()
+#time.sleep(20)
 
-driver.find_element('xpath', '//*[@id="onetrust-accept-btn-handler"]').click()
-time.sleep(5)
+#driver.find_element('xpath', '//*[@id="onetrust-accept-btn-handler"]').click()
+#time.sleep(5)
 
 pages = []
 
